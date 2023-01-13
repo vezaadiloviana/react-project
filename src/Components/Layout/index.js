@@ -7,7 +7,7 @@ const Layout = ({content}) => {
         <div className='w-min'>
           <Sidebar/>
         </div>
-        <div className='p-10 w-full'>
+        <div className='p-10 w-full overflow-hidden'>
             {content}
         </div>
     </div>

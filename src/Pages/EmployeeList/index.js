@@ -11,7 +11,9 @@ const EmployeeList = () => {
       content={
         <>
           <Header headerTitle={'Employee List'} />
-          <ListEmployee/>
+          <div className='py-10'>
+            <ListEmployee/>
+          </div>
         </>
       }
       />
