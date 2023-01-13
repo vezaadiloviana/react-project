@@ -61,10 +61,13 @@ const Sidebar = ({ theme }) => {
 
           <div onClickAway={handleDropdownAway}>
             <button type="button" onClick={handleDropdown} className="flex rounded-md p-3 w-full cursor-pointer hover:bg-[#E44E21] hover:text-white text-gray-600 text-sm items-center">
-              <Icon icon="fluent:people-community-24-regular" className="w-6 h-6" />
-              <span className={`${!open && "hidden"} ml-4 origin-left duration-200 font-semibold`}>
-                Employee
-              </span>
+              <div className="w-full flex items-center">
+                <Icon icon="fluent:people-community-24-regular" className="w-6 h-6" />
+                <span className={`${!open && "hidden"} ml-4 origin-left duration-200 font-semibold`}>
+                  Employee
+                </span>
+              </div>
+              <Icon className={`w-5 h-5 ${openDropdown && "rotate-180" } ${!open && "hidden"} `} icon="ic:sharp-keyboard-arrow-down" />
             </button>
             {openDropdown ? (
               <div> 
