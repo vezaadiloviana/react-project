@@ -1,8 +1,26 @@
 import { Icon } from '@iconify/react'
-import React from 'react'
-import avatar from '../../../Assets/img/avatar.jpg'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+// import avatar from '../../../Assets/img/avatar.jpg'
 
 const ListEmployee = () => {
+
+  // consume API Read Data
+  const [itemsEmployee, setItemsEmployee] = useState('')
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`https://reqres.in/api/users`)
+      setItemsEmployee(response.data.data)
+      console.log(response.data)
+
+    } catch (error) {
+
+    }
+  }
+  useEffect(() => {
+    fetchData()
+  }, [])
+
   return (
     <div className="relative bg-white p-5 rounded-xl overflow-hidden">
       <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between py-3">
@@ -31,19 +49,13 @@ const ListEmployee = () => {
                 Id
               </th>
               <th scope="col" className="py-3 px-6 truncate">
-                Name
+                First Name
               </th>
               <th scope="col" className="py-3 px-6 truncate">
-                Job Title
+                Last Name
               </th>
               <th scope="col" className="py-3 px-6 truncate">
-                Employee Status
-              </th>
-              <th scope="col" className="py-3 px-6 truncate">
-                Job Position
-              </th>
-              <th scope="col" className="py-3 px-6 truncate">
-                Contract Expires
+                Email
               </th>
               <th scope="col" className="py-3 px-6 truncate">
                 Action
@@ -51,41 +63,41 @@ const ListEmployee = () => {
             </tr>
           </thead>
           <tbody className="text-gray-900">
-            <tr className="bg-white border-b">
-              <td className="py-4 px-6 truncate font-semibold">
-                1
-              </td>
-              <td className="py-4 px-6">
-                <div className="flex flex-row items-center font-semibold gap-5">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-200">
-                    <img className="w-8 h-8" src={avatar} alt="" />
-                  </div>
-                  <h1 className="truncate">Veza Adiloviana</h1>
-                </div>
-              </td>
-              <td className="py-4 px-6 truncate font-semibold">
-                IT Development
-              </td>
-              <td className="py-4 px-6 truncate font-semibold">
-                Full-Time Contract
-              </td>
-              <td className="py-4 px-6 truncate font-semibold">
-                Lead Developer
-              </td>
-              <td className="py-4 px-6 truncate font-semibold">
-                11/11/2023
-              </td>
-              <td className="py-4 px-6 truncate font-semibold">
-                <div className='flex flex-row gap-5'>
-                  <button type="button">
-                    <Icon className='w-5 h-5' icon="akar-icons:edit" />
-                  </button>
-                  <button type="button">
-                    <Icon className='w-5 h-5' icon="ant-design:delete-outlined" />
-                  </button>
-                </div>
-              </td>
-            </tr>
+            {Object.values(itemsEmployee).map((data) => {
+              return (
+                <tr key={data.id} className="bg-white border-b">
+                  <td className="py-4 px-6 truncate font-semibold">
+                    {data.id}
+                  </td>
+                  <td className="py-4 px-6">
+                    <div className="flex flex-row items-center font-semibold gap-5">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-200">
+                        <img className="w-8 h-8" src={data.avatar} alt="" />
+                      </div>
+                      <h1 className="truncate">{data.first_name}</h1>
+                    </div>
+                  </td>
+                  <td className="py-4 px-6 truncate font-semibold">
+                    {data.last_name}
+                  </td>
+                  <td className="py-4 px-6 truncate font-semibold">
+                    {data.email}
+                  </td>
+                  <td className="py-4 px-6 truncate font-semibold">
+                    <div className='flex flex-row gap-5'>
+                      <button type="button">
+                        <Icon className='w-5 h-5' icon="akar-icons:edit" />
+                      </button>
+                      <button type="button">
+                        <Icon className='w-5 h-5' icon="ant-design:delete-outlined" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              )
+            })
+            }
+
           </tbody>
         </table>
       </div>
