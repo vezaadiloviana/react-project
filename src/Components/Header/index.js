@@ -1,11 +1,11 @@
 import React from 'react';
 import avatar from '../../Assets/img/avatar.jpg';
 
-const Header = () => {
+const Header = ({headerTitle}) => {
   return (
     <div className='flex items-center justify-between'>
         <div>
-            <h1 className='text-lg font-semibold'>Welcome to Hehe React</h1>
+            <h1 className='text-lg font-semibold'>{headerTitle}</h1>
             <p className='text-sm'>it’s Monday, 21 Februari 2022</p>
         </div>
         <div className='flex items-center gap-3'>

@@ -8,7 +8,7 @@ const Home = () => {
       <Layout
       content={
         <>
-          <Header/>
+          <Header headerTitle={'Welcome to Haha React'} />
         </>
       }
       />
