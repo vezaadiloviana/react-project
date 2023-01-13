@@ -1,3 +1,4 @@
+import { Icon } from '@iconify/react'
 import React from 'react'
 import avatar from '../../../Assets/img/avatar.jpg'
 
@@ -24,7 +25,7 @@ const ListEmployee = () => {
 
       <div className="overflow-auto h-full">
         <table className="w-full text-sm text-left text-gray-500">
-          <thead className="text-xs text-gray-500 uppercase bg-white border-b">
+          <thead className="text-xs text-gray-500 uppercase bg-[#F1F1F1] border-b">
             <tr>
               <th scope="col" className="py-3 px-6 truncate">
                 Id
@@ -72,18 +73,17 @@ const ListEmployee = () => {
                 Lead Developer
               </td>
               <td className="py-4 px-6 truncate font-semibold">
-                Toko Sri Rejeki
-              </td>
-              <td className="py-4 px-6 truncate font-semibold">
                 11/11/2023
               </td>
-              <td className="py-4 px-6 flex flex-row gap-3 truncate font-semibold justify-end">
-                <button type="button" className="text-secondaryBlue w-10 h-10 bg-[#F5F9FD] rounded-md flex justify-center items-center">
-                  <span className="iconify w-5 h-5" data-icon="akar-icons:edit"></span>
-                </button>
-                <button type="button" className="text-secondaryBlue w-10 h-10 bg-[#F5F9FD] rounded-md flex justify-center items-center">
-                  <span className="iconify w-5 h-5" data-icon="ant-design:delete-outlined"></span>
-                </button>
+              <td className="py-4 px-6 truncate font-semibold">
+                <div className='flex flex-row gap-5'>
+                  <button type="button">
+                    <Icon className='w-5 h-5' icon="akar-icons:edit" />
+                  </button>
+                  <button type="button">
+                    <Icon className='w-5 h-5' icon="ant-design:delete-outlined" />
+                  </button>
+                </div>
               </td>
             </tr>
           </tbody>
