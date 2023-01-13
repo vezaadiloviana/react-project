@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 
 const Sidebar = ({ theme }) => {
   const [open, setOpen] = useState(true);
-  const Menus = [
-    { title: "Home", src: "ant-design:home-outlined", link: "/dashboard" },
-    { title: "Product", src: "bx:box", link: "/product" },
-    { title: "Reporting ", src: "ant-design:pie-chart-outlined", link: "/reporting",},
-    { title: "Setting", src: "ant-design:setting-outlined", link: "/setting" },
-  ];
-  const [show, setShow] = useState(false);
+  // const Menus = [
+  //   { title: "Home", src: "ant-design:home-outlined", link: "/dashboard" },
+  //   { title: "Product", src: "bx:box", link: "/product" },
+  //   { title: "Reporting ", src: "ant-design:pie-chart-outlined", link: "/reporting",},
+  //   { title: "Setting", src: "ant-design:setting-outlined", link: "/setting" },
+  // ];
+  // const [show, setShow] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
 
   const handleDropdown = () => {
